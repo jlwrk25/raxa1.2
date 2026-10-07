@@ -9,13 +9,14 @@ export interface LogoProps {
 
 /**
  * Official RaXa Systems Vector Brand Logo
- * Matches logonavy.svg and logowhite.svg
- * Featuring:
- * - Adult mother panda on left with round ears, eye patches with pupils, happy smiling snout
- * - Baby panda cub nestled on right with round ears, eye patches with pupils, sweet smile
- * - Two floating love hearts positioned between the pandas
- * - Soft organic cloud/snow silhouette foundation
- * - Bold custom "RaXa" geometric wordmark embedded across the bottom
+ * Matches logonavy.png, logonavy.svg, and logowhite.png
+ *
+ * Structure:
+ * - Adult mother panda on left: white face, navy/dark ears, navy/dark eye patches with white pupils, smiling snout
+ * - Baby panda cub nestled on right: white face, navy/dark ears, navy/dark eye patches with white pupils, smile
+ * - Two floating love hearts between mother and baby
+ * - Cloud/snow base foundation
+ * - Bold custom "RaXa" geometric wordmark cutting through the cloud base
  */
 export const RaxaLogo: React.FC<LogoProps> = ({
   variant = 'white',
@@ -24,8 +25,21 @@ export const RaxaLogo: React.FC<LogoProps> = ({
   height = 'auto',
 }) => {
   const isWhite = variant === 'white';
-  const primary = isWhite ? '#ffffff' : '#12263a';
-  const cutout = isWhite ? '#12263a' : '#ffffff';
+  // In white variant (for dark background #12263a):
+  // The outer cloud, panda body, hearts, and faces are white.
+  // The ears, eye patches, mouths, and cut-out letters are dark navy (#12263a).
+  // In navy variant (for light background):
+  // The outer cloud, panda body, hearts, ears, eye patches are navy (#12263a).
+  // The faces and cut-out letters are white (#ffffff).
+  const darkColor = isWhite ? '#12263a' : '#12263a';
+  const lightColor = '#ffffff';
+
+  const bodyAndCloud = isWhite ? lightColor : darkColor;
+  const faceColor = lightColor;
+  const featureColor = darkColor;
+  const pupilColor = lightColor;
+  const wordmarkColor = isWhite ? darkColor : lightColor;
+  const heartColor = isWhite ? lightColor : darkColor;
 
   return (
     <svg
@@ -40,104 +54,113 @@ export const RaxaLogo: React.FC<LogoProps> = ({
     >
       <g>
         {/* ========================================================= */}
+        {/* CLOUD BASE FOUNDATION (BOTTOM)                            */}
+        {/* ========================================================= */}
+        <path
+          d="M 30 450 C 0 380 50 320 135 320 C 180 320 220 338 250 365 C 300 335 385 335 435 375 C 475 335 555 325 615 365 C 675 315 780 315 845 355 C 910 325 985 365 990 440 C 995 515 940 575 850 575 C 760 575 690 535 620 575 C 540 605 420 585 350 565 C 270 585 180 585 105 555 C 30 525 15 470 30 450 Z"
+          fill={bodyAndCloud}
+        />
+
+        {/* ========================================================= */}
         {/* MOTHER PANDA (LEFT)                                       */}
         {/* ========================================================= */}
 
         {/* Mother Panda Ears */}
-        <circle cx="218" cy="85" r="58" fill={isWhite ? cutout : primary} />
-        <circle cx="462" cy="102" r="56" fill={isWhite ? cutout : primary} />
+        <circle cx="215" cy="85" r="58" fill={featureColor} />
+        <circle cx="470" cy="102" r="56" fill={featureColor} />
 
-        {/* Mother Panda Body & Head Silhouette */}
+        {/* Mother Panda Body Contour (Outer Frame) */}
         <path
-          d="M 125 430 C 55 350 70 230 180 140 C 260 80 430 80 515 145 C 555 175 580 230 580 300 C 580 360 550 420 500 450 Z"
-          fill={primary}
+          d="M 115 420 C 50 330 70 210 180 130 C 230 95 320 75 420 85 C 490 92 530 130 560 180 C 585 220 595 280 595 350 C 595 410 560 450 500 470 Z"
+          fill={bodyAndCloud}
         />
 
-        {/* Mother Panda Eye Patches */}
-        <ellipse cx="260" cy="215" rx="35" ry="50" transform="rotate(-18 260 215)" fill={isWhite ? cutout : primary} />
-        <ellipse cx="405" cy="225" rx="35" ry="50" transform="rotate(18 405 225)" fill={isWhite ? cutout : primary} />
+        {/* Mother Panda White Face Area */}
+        <path
+          d="M 185 270 C 155 195 205 120 310 102 C 415 85 490 125 505 210 C 520 280 475 355 400 378 C 315 402 210 350 185 270 Z"
+          fill={faceColor}
+        />
+
+        {/* Mother Panda Eye Patches (Tilted Inward) */}
+        <ellipse cx="270" cy="210" rx="42" ry="58" transform="rotate(-15 270 210)" fill={featureColor} />
+        <ellipse cx="415" cy="220" rx="42" ry="58" transform="rotate(18 415 220)" fill={featureColor} />
 
         {/* Mother Panda Pupils */}
-        <circle cx="268" cy="208" r="9" fill={isWhite ? primary : cutout} />
-        <circle cx="396" cy="218" r="9" fill={isWhite ? primary : cutout} />
+        <ellipse cx="282" cy="202" rx="14" ry="18" fill={pupilColor} />
+        <ellipse cx="405" cy="212" rx="14" ry="18" fill={pupilColor} />
 
-        {/* Mother Panda Snout & Smile */}
-        <path d="M 315 268 Q 338 258 360 268 Q 338 288 315 268 Z" fill={isWhite ? cutout : primary} />
-        <path
-          d="M 318 290 Q 338 312 358 290 Z"
-          fill={isWhite ? cutout : primary}
-        />
+        {/* Mother Panda Snout & Nose */}
+        <path d="M 320 265 Q 345 252 370 265 Q 345 288 320 265 Z" fill={featureColor} />
+
+        {/* Mother Panda Happy Smile with Tongue */}
+        <path d="M 322 284 Q 345 316 368 284" stroke={featureColor} strokeWidth="6" strokeLinecap="round" fill="none" />
+        <path d="M 332 292 Q 345 318 358 292 Z" fill={featureColor} />
 
         {/* ========================================================= */}
         {/* BABY PANDA CUB (RIGHT)                                    */}
         {/* ========================================================= */}
 
         {/* Baby Panda Ears */}
-        <circle cx="600" cy="200" r="38" fill={isWhite ? cutout : primary} />
-        <circle cx="760" cy="215" r="36" fill={isWhite ? cutout : primary} />
+        <circle cx="615" cy="195" r="38" fill={featureColor} />
+        <circle cx="778" cy="208" r="36" fill={featureColor} />
 
-        {/* Baby Panda Body & Head Silhouette */}
+        {/* Baby Panda Body Contour */}
         <path
-          d="M 540 420 C 510 330 550 265 640 235 C 725 205 825 240 865 310 C 905 380 895 470 825 510 C 740 550 560 520 540 420 Z"
-          fill={primary}
+          d="M 545 420 C 515 330 555 255 655 220 C 745 190 840 230 875 305 C 910 380 895 465 825 510 C 735 555 565 520 545 420 Z"
+          fill={bodyAndCloud}
+        />
+
+        {/* Baby Panda White Face Area */}
+        <path
+          d="M 585 345 C 555 285 595 228 665 215 C 735 200 795 235 810 295 C 825 355 790 415 730 430 C 660 445 605 405 585 345 Z"
+          fill={faceColor}
         />
 
         {/* Baby Panda Eye Patches */}
-        <ellipse cx="640" cy="325" rx="23" ry="33" transform="rotate(-15 640 325)" fill={isWhite ? cutout : primary} />
-        <ellipse cx="735" cy="330" rx="23" ry="33" transform="rotate(18 735 330)" fill={isWhite ? cutout : primary} />
+        <ellipse cx="648" cy="315" rx="27" ry="38" transform="rotate(-14 648 315)" fill={featureColor} />
+        <ellipse cx="748" cy="322" rx="27" ry="38" transform="rotate(16 748 322)" fill={featureColor} />
 
         {/* Baby Panda Pupils */}
-        <circle cx="645" cy="320" r="6" fill={isWhite ? primary : cutout} />
-        <circle cx="730" cy="325" r="6" fill={isWhite ? primary : cutout} />
+        <ellipse cx="656" cy="309" rx="9" ry="12" fill={pupilColor} />
+        <ellipse cx="740" cy="316" rx="9" ry="12" fill={pupilColor} />
 
         {/* Baby Panda Snout & Smile */}
-        <path d="M 675 362 Q 690 354 705 362 Q 690 374 675 362 Z" fill={isWhite ? cutout : primary} />
-        <path
-          d="M 680 378 Q 690 388 700 378"
-          stroke={isWhite ? cutout : primary}
-          strokeWidth="4"
-          strokeLinecap="round"
-          fill="none"
-        />
+        <path d="M 685 358 Q 700 348 715 358 Q 700 372 685 358 Z" fill={featureColor} />
+        <path d="M 688 372 Q 700 388 712 372" stroke={featureColor} strokeWidth="4" strokeLinecap="round" fill="none" />
 
         {/* ========================================================= */}
         {/* FLOATING LOVE HEARTS                                      */}
         {/* ========================================================= */}
 
-        {/* Top Heart */}
+        {/* Upper Big Heart */}
         <path
-          d="M 565 145 C 565 118 535 102 515 124 C 495 102 465 118 465 145 C 465 180 515 208 515 208 C 515 208 565 180 565 145 Z"
-          fill={primary}
-          transform="rotate(16 515 150)"
+          d="M 570 140 C 570 110 535 95 515 120 C 495 95 460 110 460 140 C 460 180 515 212 515 212 C 515 212 570 180 570 140 Z"
+          fill={heartColor}
+          transform="rotate(18 515 150)"
         />
 
-        {/* Bottom Heart */}
+        {/* Lower Small Heart */}
         <path
-          d="M 590 236 C 590 218 568 206 552 222 C 536 206 514 218 514 236 C 514 262 552 284 552 284 C 552 284 590 262 590 236 Z"
-          fill={primary}
-          transform="rotate(25 552 245)"
-        />
-
-        {/* ========================================================= */}
-        {/* CLOUD BASE FOUNDATION                                     */}
-        {/* ========================================================= */}
-        <path
-          d="M 40 450 C 10 390 60 330 140 330 C 180 330 220 345 250 370 C 300 340 380 340 430 380 C 470 340 550 330 610 370 C 670 320 770 320 830 360 C 890 330 960 370 970 440 C 980 510 930 570 850 570 C 760 570 690 530 620 570 C 540 600 420 580 350 560 C 270 580 180 580 110 550 C 40 520 20 470 40 450 Z"
-          fill={primary}
+          d="M 595 235 C 595 215 570 200 555 218 C 540 200 515 215 515 235 C 515 264 555 288 555 288 C 555 288 595 264 595 235 Z"
+          fill={heartColor}
+          transform="rotate(28 555 240)"
         />
 
         {/* ========================================================= */}
-        {/* BOLD "RaXa" WORDMARK                                      */}
+        {/* BOLD "RaXa" WORDMARK (CUT OUT THROUGH CLOUD)              */}
         {/* ========================================================= */}
-        <g fill={cutout}>
+        <g fill={wordmarkColor}>
           {/* 'R' */}
-          <path d="M 120 375 L 120 530 L 182 530 L 182 472 L 226 530 L 296 530 L 232 462 C 266 452 286 426 286 396 C 286 380 270 375 250 375 Z M 182 412 L 226 412 C 238 412 246 420 246 430 C 246 440 238 447 226 447 L 182 447 Z" />
+          <path d="M 115 365 L 115 528 L 180 528 L 180 468 L 228 528 L 305 528 L 236 456 C 272 444 294 416 294 386 C 294 370 278 365 255 365 Z M 180 405 L 230 405 C 244 405 252 413 252 424 C 252 435 244 443 230 443 L 180 443 Z" />
+
           {/* 'a' */}
-          <path d="M 330 445 C 330 405 365 385 415 385 C 455 385 480 398 480 422 L 480 530 L 435 530 L 435 508 C 420 524 395 534 365 534 C 335 534 310 514 310 480 C 310 446 338 430 390 430 L 435 430 L 435 422 C 435 410 422 405 405 405 C 385 405 370 412 360 425 Z M 435 462 L 395 462 C 375 462 365 470 365 482 C 365 494 375 502 392 502 C 415 502 435 490 435 472 Z" />
+          <path d="M 340 440 C 340 398 376 378 430 378 C 470 378 498 392 498 418 L 498 528 L 450 528 L 450 505 C 435 522 408 532 376 532 C 344 532 318 510 318 475 C 318 440 348 424 402 424 L 450 424 L 450 416 C 450 404 436 398 418 398 C 396 398 380 405 370 418 Z M 450 458 L 408 458 C 386 458 376 466 376 478 C 376 490 386 498 405 498 C 430 498 450 486 450 468 Z" />
+
           {/* 'X' */}
-          <path d="M 500 375 L 565 452 L 500 530 L 565 530 L 600 482 L 635 530 L 700 530 L 635 452 L 700 375 L 635 375 L 600 422 L 565 375 Z" />
+          <path d="M 515 365 L 585 450 L 515 528 L 585 528 L 625 476 L 665 528 L 735 528 L 665 450 L 735 365 L 665 365 L 625 418 L 585 365 Z" />
+
           {/* 'a' */}
-          <path d="M 720 445 C 720 405 755 385 805 385 C 845 385 870 398 870 422 L 870 530 L 825 530 L 825 508 C 810 524 785 534 755 534 C 725 534 700 514 700 480 C 700 446 728 430 780 430 L 825 430 L 825 422 C 825 410 812 405 795 405 C 775 405 760 412 750 425 Z M 825 462 L 785 462 C 765 462 755 470 755 482 C 755 494 765 502 782 502 C 805 502 825 490 825 472 Z" />
+          <path d="M 755 440 C 755 398 791 378 845 378 C 885 378 913 392 913 418 L 913 528 L 865 528 L 865 505 C 850 522 823 532 791 532 C 759 532 733 510 733 475 C 733 440 763 424 817 424 L 865 424 L 865 416 C 865 404 851 398 833 398 C 811 398 795 405 785 418 Z M 865 458 L 823 458 C 801 458 791 466 791 478 C 791 490 801 498 820 498 C 845 498 865 486 865 468 Z" />
         </g>
       </g>
     </svg>

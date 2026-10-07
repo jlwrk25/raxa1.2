@@ -1,19 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="48" fill="#12263a"/>
-  <!-- Mother Panda Ear -->
-  <circle cx="28" cy="28" r="10" fill="#95d600"/>
-  <circle cx="60" cy="30" r="9" fill="#95d600"/>
-  <!-- Face -->
-  <ellipse cx="44" cy="46" rx="24" ry="20" fill="#ffffff"/>
-  <!-- Eyes -->
-  <ellipse cx="36" cy="44" rx="6" ry="9" transform="rotate(-15 36 44)" fill="#12263a"/>
-  <ellipse cx="52" cy="46" rx="6" ry="9" transform="rotate(15 52 46)" fill="#12263a"/>
-  <circle cx="37" cy="43" r="2" fill="#ffffff"/>
-  <circle cx="51" cy="45" r="2" fill="#ffffff"/>
-  <!-- Nose -->
-  <ellipse cx="44" cy="53" rx="4" ry="2.5" fill="#12263a"/>
-  <!-- Hearts -->
-  <path d="M72 32 C72 26 64 22 60 27 C56 22 48 26 48 32 C48 40 60 46 60 46 C60 46 72 40 72 32 Z" fill="#95d600" transform="scale(0.35) translate(80, 20)"/>
-  <!-- Wordmark Raxa -->
-  <text x="50" y="86" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="19" fill="#95d600" letter-spacing="-1">RaXa</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <!-- Rounded Background Badge for crisp tab display on both light & dark browser themes -->
+  <rect width="1000" height="1000" rx="220" fill="#12263a"/>
+
+  <!-- Centered RaXa Official Logo Artwork (White Variant) -->
+  <g transform="translate(0, 200)">
+    <!-- Cloud Base Foundation -->
+    <path
+      d="M 30 450 C 0 380 50 320 135 320 C 180 320 220 338 250 365 C 300 335 385 335 435 375 C 475 335 555 325 615 365 C 675 315 780 315 845 355 C 910 325 985 365 990 440 C 995 515 940 575 850 575 C 760 575 690 535 620 575 C 540 605 420 585 350 565 C 270 585 180 585 105 555 C 30 525 15 470 30 450 Z"
+      fill="#ffffff"
+    />
+
+    <!-- Mother Panda Ears -->
+    <circle cx="215" cy="85" r="58" fill="#12263a"/>
+    <circle cx="470" cy="102" r="56" fill="#12263a"/>
+
+    <!-- Mother Panda Body & Head Silhouette -->
+    <path
+      d="M 115 420 C 50 330 70 210 180 130 C 230 95 320 75 420 85 C 490 92 530 130 560 180 C 585 220 595 280 595 350 C 595 410 560 450 500 470 Z"
+      fill="#ffffff"
+    />
+
+    <!-- Mother Panda Face Canvas -->
+    <path
+      d="M 185 270 C 155 195 205 120 310 102 C 415 85 490 125 505 210 C 520 280 475 355 400 378 C 315 402 210 350 185 270 Z"
+      fill="#ffffff"
+    />
+
+    <!-- Mother Panda Eye Patches -->
+    <ellipse cx="270" cy="210" rx="42" ry="58" transform="rotate(-15 270 210)" fill="#12263a"/>
+    <ellipse cx="415" cy="220" rx="42" ry="58" transform="rotate(18 415 220)" fill="#12263a"/>
+
+    <!-- Mother Panda Pupils -->
+    <ellipse cx="282" cy="202" rx="14" ry="18" fill="#ffffff"/>
+    <ellipse cx="405" cy="212" rx="14" ry="18" fill="#ffffff"/>
+
+    <!-- Mother Panda Snout & Smile -->
+    <path d="M 320 265 Q 345 252 370 265 Q 345 288 320 265 Z" fill="#12263a"/>
+    <path d="M 322 284 Q 345 316 368 284" stroke="#12263a" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M 332 292 Q 345 318 358 292 Z" fill="#12263a"/>
+
+    <!-- Baby Panda Ears -->
+    <circle cx="615" cy="195" r="38" fill="#12263a"/>
+    <circle cx="778" cy="208" r="36" fill="#12263a"/>
+
+    <!-- Baby Panda Body & Head Silhouette -->
+    <path
+      d="M 545 420 C 515 330 555 255 655 220 C 745 190 840 230 875 305 C 910 380 895 465 825 510 C 735 555 565 520 545 420 Z"
+      fill="#ffffff"
+    />
+
+    <!-- Baby Panda Face Area -->
+    <path
+      d="M 585 345 C 555 285 595 228 665 215 C 735 200 795 235 810 295 C 825 355 790 415 730 430 C 660 445 605 405 585 345 Z"
+      fill="#ffffff"
+    />
+
+    <!-- Baby Panda Eye Patches -->
+    <ellipse cx="648" cy="315" rx="27" ry="38" transform="rotate(-14 648 315)" fill="#12263a"/>
+    <ellipse cx="748" cy="322" rx="27" ry="38" transform="rotate(16 748 322)" fill="#12263a"/>
+
+    <!-- Baby Panda Pupils -->
+    <ellipse cx="656" cy="309" rx="9" ry="12" fill="#ffffff"/>
+    <ellipse cx="740" cy="316" rx="9" ry="12" fill="#ffffff"/>
+
+    <!-- Baby Panda Snout & Smile -->
+    <path d="M 685 358 Q 700 348 715 358 Q 700 372 685 358 Z" fill="#12263a"/>
+    <path d="M 688 372 Q 700 388 712 372" stroke="#12263a" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+    <!-- Floating Love Hearts -->
+    <path
+      d="M 570 140 C 570 110 535 95 515 120 C 495 95 460 110 460 140 C 460 180 515 212 515 212 C 515 212 570 180 570 140 Z"
+      fill="#ffffff"
+      transform="rotate(18 515 150)"
+    />
+    <path
+      d="M 595 235 C 595 215 570 200 555 218 C 540 200 515 215 515 235 C 515 264 555 288 555 288 C 555 288 595 264 595 235 Z"
+      fill="#ffffff"
+      transform="rotate(28 555 240)"
+    />
+
+    <!-- Bold Cut-Out "RaXa" Wordmark -->
+    <g fill="#12263a">
+      <!-- 'R' -->
+      <path d="M 115 365 L 115 528 L 180 528 L 180 468 L 228 528 L 305 528 L 236 456 C 272 444 294 416 294 386 C 294 370 278 365 255 365 Z M 180 405 L 230 405 C 244 405 252 413 252 424 C 252 435 244 443 230 443 L 180 443 Z"/>
+      <!-- 'a' -->
+      <path d="M 340 440 C 340 398 376 378 430 378 C 470 378 498 392 498 418 L 498 528 L 450 528 L 450 505 C 435 522 408 532 376 532 C 344 532 318 510 318 475 C 318 440 348 424 402 424 L 450 424 L 450 416 C 450 404 436 398 418 398 C 396 398 380 405 370 418 Z M 450 458 L 408 458 C 386 458 376 466 376 478 C 376 490 386 498 405 498 C 430 498 450 486 450 468 Z"/>
+      <!-- 'X' -->
+      <path d="M 515 365 L 585 450 L 515 528 L 585 528 L 625 476 L 665 528 L 735 528 L 665 450 L 735 365 L 665 365 L 625 418 L 585 365 Z"/>
+      <!-- 'a' -->
+      <path d="M 755 440 C 755 398 791 378 845 378 C 885 378 913 392 913 418 L 913 528 L 865 528 L 865 505 C 850 522 823 532 791 532 C 759 532 733 510 733 475 C 733 440 763 424 817 424 L 865 424 L 865 416 C 865 404 851 398 833 398 C 811 398 795 405 785 418 Z M 865 458 L 823 458 C 801 458 791 466 791 478 C 791 490 801 498 820 498 C 845 498 865 486 865 468 Z"/>
+    </g>
+  </g>
 </svg>
