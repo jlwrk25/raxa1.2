@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#12263a"/>
+  <!-- Mother Panda Ear -->
+  <circle cx="28" cy="28" r="10" fill="#95d600"/>
+  <circle cx="60" cy="30" r="9" fill="#95d600"/>
+  <!-- Face -->
+  <ellipse cx="44" cy="46" rx="24" ry="20" fill="#ffffff"/>
+  <!-- Eyes -->
+  <ellipse cx="36" cy="44" rx="6" ry="9" transform="rotate(-15 36 44)" fill="#12263a"/>
+  <ellipse cx="52" cy="46" rx="6" ry="9" transform="rotate(15 52 46)" fill="#12263a"/>
+  <circle cx="37" cy="43" r="2" fill="#ffffff"/>
+  <circle cx="51" cy="45" r="2" fill="#ffffff"/>
+  <!-- Nose -->
+  <ellipse cx="44" cy="53" rx="4" ry="2.5" fill="#12263a"/>
+  <!-- Hearts -->
+  <path d="M72 32 C72 26 64 22 60 27 C56 22 48 26 48 32 C48 40 60 46 60 46 C60 46 72 40 72 32 Z" fill="#95d600" transform="scale(0.35) translate(80, 20)"/>
+  <!-- Wordmark Raxa -->
+  <text x="50" y="86" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="19" fill="#95d600" letter-spacing="-1">RaXa</text>
+</svg>

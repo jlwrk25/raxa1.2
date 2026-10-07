@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --sec: #f1f6fc;
+  --ink: #12263a;
+  --sub: #4a5d70;
+  --rx-blue: #2f72bf;
+  --rx-ico: #1f64ad;
+  --rx-lime: #95d600;
+  --rx-lime-hover: #b4ee1f;
+  --rx-tile-bg: #ffffff;
+  --rx-tile-text: #12263a;
+  --rx-cloud-1: #ffffff;
+  --rx-cloud-2: #eaf2fb;
+  --rx-chart-line: #12263a;
+  --rx-chart-grid: #d7e0e9;
+  --rx-chart-muted: #5b6b7b;
+  --rx-chart-bg: #f1f6fc;
+  --rx-chart-text: #12263a;
+  --rx-chart-registered: #6fbf00;
+  --rx-chart-total: #7d8b9a;
+  --rx-chart-unregistered: #ff8a1f;
+  --trial: #ff7a45;
+  --trial-late: #ff4d4f;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b1826;
+  --sec: #0f2031;
+  --ink: #eef1f7;
+  --sub: #9fb2c6;
+  --rx-blue: #3d86d6;
+  --rx-ico: #7db8f0;
+  --rx-tile-bg: #14293e;
+  --rx-tile-text: #eef1f7;
+  --rx-cloud-1: #1a3652;
+  --rx-cloud-2: #11263a;
+  --rx-chart-line: #eef1f7;
+  --rx-chart-grid: #24405a;
+  --rx-chart-muted: #9fb2c6;
+  --rx-chart-bg: #0f2031;
+  --rx-chart-text: #eef1f7;
+  --rx-chart-registered: #95d600;
+  --rx-chart-total: #b8c4d0;
+  --rx-chart-unregistered: #ff9b3d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* RaXa Animated Neon CTA Button */
+.rx-btn-neon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--rx-lime);
+  color: #12263a;
+  font-weight: 800;
+  font-size: clamp(16px, 1.8vw, 22px);
+  padding: 0.75em 1.8em;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: 3px solid #12263a;
+  box-shadow: 0 8px 0 #0d1b2a, 0 14px 28px rgba(149, 214, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.rx-btn-neon:hover {
+  background: var(--rx-lime-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 0 #0d1b2a, 0 18px 32px rgba(149, 214, 0, 0.55);
+}
+
+.rx-btn-neon:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 #0d1b2a;
+}
+
+@keyframes rxWiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(1deg) scale(1.02); }
+}
+
+.rx-btn-neon--wiggle {
+  animation: rxWiggle 3.5s ease-in-out infinite;
+}
+
+/* Flowing dotted wire pulse */
+@keyframes rx-flow {
+  to { stroke-dashoffset: -19; }
+}
+
+.rx-flow {
+  animation: rx-flow 1.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rx-flow, .rx-btn-neon--wiggle {
+    animation: none;
+  }
+}
